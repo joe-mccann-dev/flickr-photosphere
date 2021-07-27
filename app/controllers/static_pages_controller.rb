@@ -1,5 +1,4 @@
 class StaticPagesController < ApplicationController
-
   def home
     if params[:user_id]
       find_user_photos
@@ -9,8 +8,8 @@ class StaticPagesController < ApplicationController
   private
 
   def find_user_photos
+    flickr = FlickRaw::Flickr.new
     begin
-      flickr = FlickRaw::Flickr.new
       @photos = flickr.photos.search(user_id: params[:user_id].strip)
     rescue Exception => e
       flash[:error] = e

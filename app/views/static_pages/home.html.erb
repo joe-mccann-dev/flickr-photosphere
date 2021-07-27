@@ -1,18 +1,32 @@
-<%= form_with(url: root_url, method: :get) do |f| %>
+<div class="columns">
+  <div class="column is-half is-offset-one-quarter">
+    <h1 class="title">Flickr Photosphere</h1>
+    <h2 class="subtitle">View the public photos of any Flickr profile.</h2>
+    <div>
+      <%= form_with(url: root_url, method: :get) do |f| %>
 
-  <div>
-    <%= f.label :user_id, "Flickr profile id" %>
-    <%= f.text_field :user_id %>
+        <div class="columns">
+          <div class="column is-half">
+
+            <div class="py-1">
+              <%= f.label :user_id, "Flickr ID", class: "label" %>
+              <%= f.text_field :user_id, placeholder: "e.g. adamwoodworth or 94494572@N07", required: true, class: "input is-primary" %>
+            </div>
+
+            <div class="my-3">
+              <%= f.submit "View Photos", class: "button is-info is-outlined", name: nil %>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+
+    <% if params[:user_id] %>
+      <% @photos.each do |photo| %>
+        <%= link_to image_tag(flickr_source_url(photo)), flickr_image_page(photo), target: :_blank %>
+      <% end %>
+    <% end %>
   </div>
 
-  <div>
-    <%= f.submit "See Photos", class: "button is-info", name: nil %>
-  </div>
-
-<% end %>
-
-<% if params[:user_id] %>
-  <% @photos.each do |photo| %>
-    <%= link_to image_tag(flickr_source_url(photo)), flickr_image_page(photo), target: :_blank %>
-  <% end %>
-<% end %>
+</div>
