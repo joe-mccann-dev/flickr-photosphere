@@ -1,0 +1,18 @@
+<%= form_with(url: root_url, method: :get) do |f| %>
+
+  <div>
+    <%= f.label :user_id, "Flickr profile id" %>
+    <%= f.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= f.submit "See Photos", class: "button is-info", name: nil %>
+  </div>
+
+<% end %>
+
+<% if params[:user_id] %>
+  <% @photos.each do |photo| %>
+    <%= link_to image_tag(flickr_source_url(photo)), flickr_image_page(photo), target: :_blank %>
+  <% end %>
+<% end %>
