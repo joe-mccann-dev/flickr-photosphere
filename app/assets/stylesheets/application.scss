@@ -1,1 +1,18 @@
 @import "bulma";
+
+.input::-moz-placeholder {
+  color: #0a0a0a;
+}
+
+.element::-webkit-input-placeholder {
+  color: #0a0a0a;
+}
+
+.photo :hover {
+  transition: all .2s ease-in;
+  transform: scale(1.05);
+}
+
+.photos {
+  border-radius: 8px;
+}

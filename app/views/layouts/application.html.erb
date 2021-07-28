@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="has-background-black">
   <head>
     <title>FlickrPhotosphere</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,7 +10,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="has-background-black">
 
     <% flash.each do |message_type, message| %>
       <% if message_type == 'error' %>
@@ -22,6 +22,5 @@
     <section class="section">
       <%= yield %>
     </section>
-    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
