@@ -1,6 +1,11 @@
 <div class="columns">
   <div class="column is-half is-offset-one-quarter">
-    <h1 class="title has-text-light">Flickr Photosphere</h1>
+    <h1 class="title has-text-light">
+      <span class="icon">
+        <ion-icon name="logo-flickr"></ion-icon>
+      </span>
+      <%= link_to("Flickr Photosphere", root_url, class: "has-text-light") %>
+    </h1>
     <h2 class="subtitle has-text-info-dark is-6">View the public photos of any Flickr profile.</h2>
     <div>
       <%= form_with(url: root_url, method: :get) do |f| %>
@@ -22,15 +27,17 @@
       <% end %>
 
       <% if params[:user_id].present? %>
-                  <div class="mb-4 pb-2 profile-link has-text-centered">
-              <%= link_to "flickr.com/photos/#{params[:user_id]}/", profile_photos_page(params[:user_id]), target: :_blank, class: "has-text-link is-size-5-desktop" %>
-            </div>
         <section class="photos section has-background-dark">
+                <div class="mb-4 pb-2 profile-link has-text-centered">
+          <span class="has-text-info-light">
+            <%= link_to "flickr.com/photos/#{params[:user_id]}/", profile_photos_page(params[:user_id]), target: :_blank, class: "has-text-link is-size-5-desktop" %>
+          </span>
+        </div>
           <div class="has-text-centered">
             <% @photos.each_with_index do |photo, index| %>
-              <%= link_to image_tag(flickr_source_url(photo), alt: alt_image_description(index), class: "my-3"), 
+              <%= link_to image_tag(flickr_source_url(photo), alt: alt_image_description(index), class: "my-5"), 
                                       flickr_image_page(photo),
-                                      class: "mx-2 photo",
+                                      class: "mr-2 photo",
                                       target: :_blank %>
             <% end %>
 
@@ -38,7 +45,6 @@
         </section>
       <% end %>
     </div>
-    
-  </div>
 
+  </div>
 </div>
