@@ -1,17 +1,20 @@
-<%= form_with(url: root_url, method: :get) do |f| %>
+<div class="ml-2">
+  <%= form_with(url: root_url, method: :get) do |f| %>
 
-  <div class="columns">
-    <div class="column is-half">
+    <div class="columns">
+      <div class="column is-half">
 
-      <div>
-        <%= f.label :user_id, "Flickr ID", class: "label has-text-light" %>
-        <%= f.text_field :user_id, placeholder: "e.g. adamwoodworth or 94494572@N07", value: params[:user_id], required: true, class: "input is-success" %>
-      </div>
+        <div>
+          <%= f.label :user_id, "Flickr ID", class: "label has-text-light" %>
+          <%= f.text_field :user_id, placeholder: "e.g. adamwoodworth or 94494572@N07", value: params[:user_id], required: true, class: "input is-success" %>
+        </div>
 
-      <div class="mt-3 mb-5">
-        <%= f.submit "View Photos", class: "button is-info is-outlined", name: nil, data: { disable_with: "Finding Photos" } %>
+        <div class="mt-3 mb-5">
+          <%= f.submit "View Photos", class: "button is-info is-outlined ml-2 mt-2", name: nil, data: { disable_with: "Finding Photos" } %>
+        </div>
       </div>
     </div>
-  </div>
 
-<% end %>
+  <% end %>
+</div>
+

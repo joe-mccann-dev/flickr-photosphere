@@ -14,6 +14,8 @@ RSpec.describe "StaticPages", type: :system do
   end
 
   describe "Looking up a Flickr ID's photos" do
+    include StaticPagesHelper
+
     context "a user visits the home page and wants to see the photos of a particular Flickr profile" do
       let(:flickr_id) { "adamwoodworth" }
       let(:flickr) { FlickRaw::Flickr.new }
@@ -27,7 +29,7 @@ RSpec.describe "StaticPages", type: :system do
 
       it "allows them to fill in an ID and see the photos associated with that ID" do
         photos.each do |photo|
-          image_source = "https://live.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}"
+          image_source = flickr_source_url(photo)
           expect(page).to have_css("img[src*='#{image_source}']")
         end
       end
@@ -38,7 +40,7 @@ RSpec.describe "StaticPages", type: :system do
 
         # photos.first will have id of "photo-0"
         find("#photo-0").click
-        expect(current_url).to eq("https://flickr.com/photos/#{photo.owner}/#{photo.id}")
+        expect(current_url).to eq(flickr_image_page(photo))
       end
     end
   end

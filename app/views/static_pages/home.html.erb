@@ -8,8 +8,9 @@
     </h1>
     <h2 class="subtitle has-text-info-dark is-6">View the public photos of any Flickr profile.</h2>
     <div>
-      <%= render 'flickr_id_form' %>
-
+      <div class="box photos">
+        <%= render 'flickr_id_form' %>
+      </div>
       <% if params[:user_id].present? %>
         <%= render 'photo_results' %>
       <% end %>
