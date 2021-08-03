@@ -8,41 +8,10 @@
     </h1>
     <h2 class="subtitle has-text-info-dark is-6">View the public photos of any Flickr profile.</h2>
     <div>
-      <%= form_with(url: root_url, method: :get) do |f| %>
-
-        <div class="columns">
-          <div class="column is-half">
-
-            <div>
-              <%= f.label :user_id, "Flickr ID", class: "label has-text-light" %>
-              <%= f.text_field :user_id, placeholder: "e.g. adamwoodworth or 94494572@N07", required: true, class: "input is-success" %>
-            </div>
-
-            <div class="mt-3 mb-5">
-              <%= f.submit "View Photos", class: "button is-info is-outlined", name: nil, data: { disable_with: "Finding Photos" } %>
-            </div>
-          </div>
-        </div>
-
-      <% end %>
+      <%= render 'flickr_id_form' %>
 
       <% if params[:user_id].present? %>
-        <section class="photos section has-background-dark">
-          <div class="mb-4 pb-2 profile-link has-text-centered">
-            <span class="has-text-info-light">
-              <%= link_to "flickr.com/photos/#{params[:user_id]}/", profile_photos_page(params[:user_id]), target: :_blank, class: "has-text-link is-size-5-desktop" %>
-            </span>
-          </div>
-          <div class="has-text-centered">
-            <% @photos.each_with_index do |photo, index| %>
-              <%= link_to image_tag(flickr_source_url(photo), { alt: alt_image_description(index), class: "my-5" }), 
-                                      flickr_image_page(photo),
-                                      { id: "photo-#{index}", class: "mr-2 photo", target: :_blank }
-                                      %>
-            <% end %>
-
-          </div>
-        </section>
+        <%= render 'photo_results' %>
       <% end %>
     </div>
 
