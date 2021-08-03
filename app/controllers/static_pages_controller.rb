@@ -17,7 +17,7 @@ class StaticPagesController < ApplicationController
         redirect_to root_url
       end
     else
-      # for when user manaully enters "/?user_id=" as url
+      # for when user manually enters "/?user_id=" as url
       flash.now[:error] = "No user id provided"
       render "home"
     end
