@@ -5,11 +5,11 @@
 * Utilizes the [Flickr API](https://www.flickr.com/services/api/) to return a list of public photos upon form submission.
 
 * Allows viewing of a given Flickr user's public photos
-    1. Visit the the application [page](https://flickr-photosphere.herokuapp.com/)
-    2. Enter a Flickr ID, e.g. "adamwoodworth" or "94494572@40N07"
-    3. Click "View Photos"
-    4. The [Flickraw gem](https://github.com/hanklords/flickraw) connects to Flickr API.
-    5. See that user's public photos appear on the same [page](https://github.com/joe-mccann-dev/flickr-photosphere/blob/main/app/views/static_pages/home.html.erb).
+    * Visit the the application [page](https://flickr-photosphere.herokuapp.com/)
+    * Enter a Flickr ID, e.g. "adamwoodworth" or "94494572@40N07"
+    * Click "View Photos"
+    * The [Flickraw gem](https://github.com/hanklords/flickraw) connects to Flickr API.
+    * See that user's public photos appear on the same [page](https://github.com/joe-mccann-dev/flickr-photosphere/blob/main/app/views/static_pages/home.html.erb).
 
 ### What I learned
 
