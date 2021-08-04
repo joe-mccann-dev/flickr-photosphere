@@ -26,8 +26,8 @@ module StaticPagesHelper
     "https://flickr.com/photos/#{photo.owner}/#{photo.id}"
   end
 
-  def alt_image_description(index)
-    "Flickr profile #{params[:user_id]} photo ##{index + 1}"
+  def alt_image_description(index, flickr_id = params[:user_id])
+    "Flickr profile #{flickr_id} photo ##{index + 1}"
   end
 
   def profile_photos_page(user)
